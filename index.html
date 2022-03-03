@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Volunteer Form</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Helping Hands Volunteer Application</h1>
+		<p>Thank you so much for your interest in volunteering with Helping Hands United! Please fill out the brief form below to give us a little background information about yourself. One of our volunteer co-ordinators will contact you via email or phone with seven days to discuss the opportunity with you further.</p>
+		<div class="form-container">
+			<form id="vol-form">
+				<div class="form-section">
+					<label for="first-name">First Name:</label>
+					<input id="first-name" name="first-name" type="text">
+				</div>
+				<div class="form-section">
+					<label for="last-name">Last Name:</label>
+					<input id="last-name" name="last-name" type="text">
+				</div>
+				<div class="form-section">
+					<label for="email">Email:</label>
+					<input id="email" name="email" type="email">
+				</div>
+				<div class="form-section">
+					<label for="phone">Phone:</label>
+					<input id="phone" name="phone" type="tel">
+				</div>
+				<div class="form-section">
+					<label for="prev-vol">Past Experience:</label>
+					<input id="prev-vol" name="prev-vol" type="text">
+				</div>
+				<div class="form-section">
+					<label for="from-year" class="from-label">From:</label>
+					<select id="from-year" name="from-year">
+						<option value="blank"></option>
+						<option value="1999">Before 2000</option>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+						<option value="2006">2006</option>
+						<option value="2007">2007</option>
+						<option value="2008">2008</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+					</select>
+					<label for="to-year" class="to-label">To:</label>
+					<select id="to-year" name="to-year">
+					</select>
+				</div>
+				<input id="submit" type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+	<script>
+		var fromYear = document.getElementById('from-year')
+		var toYear = document.getElementById('to-year')
+		var option;
+		var toYearVal;
+		fromYear.onchange = function() {
+			toYearVal = toYear.value
+			toYear.innerHTML = '';
+			for(var i = fromYear.value; i <= 2017; i++){
+				option = document.createElement('option'); //creation option element
+				option.setAttribute('value', i); //adding value to created element
+				option.textContent = i;//adds text to the new elemnt
+				toYear.appendChild(option);//inserts options to the select elements as a child
+
+				if(toYearVal >= fromYear.value) {
+					toYear.value = toYearVal
+				}
+			}
+		}
+	</script>
+</body>
+</html>
